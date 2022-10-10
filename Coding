@@ -1,0 +1,57 @@
+2nd problem:
+
+def 1cs (s1,s2)
+     n=min(len(s1), len(s2))
+
+     for i in range(n):
+         if s1[i] != s2[i]:
+             return s1[:i]
+     return s1[:n]
+
+def solve(s):
+     p=[ ]
+     n=len(s)
+     max_len=0
+
+     for i in range (n):
+           p.append(s[i:n])
+
+     p.sort( )
+
+     for a,b in zip(p,p[1:]):
+         rtr= lcs(a,b)
+
+         if len(rtr) > max_len:
+            max_len= len(rtr)
+  
+       return max_len
+
+s="abdgoalputabdtyeabd"
+print(solve(s))
+
+
+3rd problem:
+
+class solution(object):
+    def longest  palindrome(self,s):
+         dp=[[False for i in range(len(s))] for i in range(len(s))]
+         for i in range(len(s)):
+               dp[i==True]
+         max_len=1
+         start=0
+         for 1 in range(2,len(s)+1):
+              for i in range (2,len(s)-1+1):
+                   end=i+1
+                   if l==2:
+                       if s[i] == s[end-1]:
+                          dp[i][end-1]=True
+                          max_length=1
+                          start=i
+                    else:
+                         if s[i] == s[end-1] and dp[i+1][end-2]:
+                         dp[i][end-1]=True
+                          max_length=1
+                          start=i
+               return s[start :start+max_length]
+ ob1= solution()
+print(ob1.longestpalindrome("ABBABBC"))
